@@ -1,52 +1,34 @@
 import React, { useState } from 'react';
-import PhotoListItem from './components/PhotoListItem';
+import HomeRoute from './routes/HomeRoute';
 import './App.scss';
-
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
-  // Define state to track liked photos
-  const [likedPhotos, setLikedPhotos] = useState([]);
-
-  // Function to handle liking a photo
-  const handleLikeClick = (photoId) => {
-  setLikedPhotos((prevLikedPhotos) => {
-    if (prevLikedPhotos.includes(photoId)) {
-      // If already liked, remove from the liked photos
-      return prevLikedPhotos.filter((id) => id !== photoId);
-    }
-    // If not liked, add to the liked photos
-    return [...prevLikedPhotos, photoId];
-  });
-};
-
-  const photos = new Array(3).fill().map((_, index) => ({
-    ...sampleDataForPhotoListItem,
-    id: `${index + 1}`, // Make each ID unique
-  }));
+  const { state, updateToFavPhotoIds, onPhotoSelect, onClosePhotoDetailsModal, isPhotoInFavorites, onTopicSelect } = useApplicationData();
 
   return (
     <div className="App">
-      
-      {photos.map((photo) => (
-        <PhotoListItem
-          key={photo.id}
-          photo={photo}
-          isPhotoFavorited={likedPhotos.includes(photo.id)}
-          addFavorite={() => handleLikeClick(photo.id)}
-          removeFavorite={() => handleLikeClick(photo.id)}
-        />
-      ))}
+      <HomeRoute
+        photos={state.photoData}
+        topics={state.topicData}
+        openModal={onPhotoSelect}
+        markAsFavPhoto={updateToFavPhotoIds}
+        isPhotoInFavorites={isPhotoInFavorites}
+        favPhotos={state.favPhotos}
+        topicSelect={onTopicSelect}
+      />
+
+      {state.isModalOpen && <PhotoDetailsModal
+        closeModal={onClosePhotoDetailsModal}
+        photo={state.selectedPhoto}
+        photos={state.photoData}
+        markAsFavPhoto={updateToFavPhotoIds}
+        isPhotoInFavorites={isPhotoInFavorites}
+      />}
+
     </div>
+
   );
 };
 
