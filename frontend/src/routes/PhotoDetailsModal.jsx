@@ -6,11 +6,11 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { photo, closeModal, photos, markAsFavPhoto } = props;
+  const { photo, closeModal, photos, markFavPhoto } = props;
   const { id, title, urls, user, location } = photo;
 
   const onFavoriteClick = function() {
-    markAsFavPhoto(props.photo.id);
+    markFavPhoto(props.photo.id);
   };
 
   // Filter out the main photo from the list of similar photos
@@ -45,7 +45,7 @@ const PhotoDetailsModal = (props) => {
         <div className="photo-details-modal__images">
           <PhotoList
             photos={similarPhotos}
-            markAsFavPhoto={props.markAsFavPhoto}
+            markFavPhoto={props.markFavPhoto}
             openModal={props.openModal}
             isPhotoInFavorites={props.isPhotoInFavorites}
           />
