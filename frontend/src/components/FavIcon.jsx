@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FavIcon = (props) => {
-  //console.log(props.selected, props.displayAlert)
   
   return (
     <svg width="26" height="24" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
