@@ -6,9 +6,9 @@ export const ACTIONS = {
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_MODAL_OPEN: 'SET_MODAL_OPEN',
   SET_SELECTED_PHOTO: 'SET_SELECTED_PHOTO',
-  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SET_SELECTED_TOPIC: 'SET_SELECTED_TOPIC',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA'  
 };
 
 // Define initial state
@@ -16,9 +16,9 @@ const initialState = {
   isModalOpen: false,
   selectedPhoto: null,
   favPhotos: [],
-  photoData: [],
   topicData: [],
-  selectedTopic: null
+  selectedTopic: null, 
+  photoData: [],
 };
 
 // Define the reducer function
@@ -32,12 +32,12 @@ function reducer(state, action) {
       return { ...state, isModalOpen: action.payload };
     case ACTIONS.SET_SELECTED_PHOTO:
       return { ...state, selectedPhoto: action.payload };
-    case 'SET_PHOTO_DATA':
-      return { ...state, photoData: action.payload };
-    case 'SET_TOPIC_DATA':
+    case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
     case ACTIONS.SET_SELECTED_TOPIC:
       return { ...state, selectedTopic: action.payload };
+    case ACTIONS.SET_PHOTO_DATA:
+      return { ...state, photoData: action.payload };
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
   }
@@ -54,7 +54,6 @@ function useApplicationData() {
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
   }, []);
 
-  //fetch topics data from API on first render
   useEffect(() => {
     fetch("http://localhost:8001/api/topics")
       .then((response) => response.json())
@@ -62,7 +61,7 @@ function useApplicationData() {
   }, []);
 
   // Action creators
-  const updateToFavPhotoIds = (id) => {
+  const updateFavPhotoIds = (id) => {
     dispatch({ type: state.favPhotos.includes(id) ? ACTIONS.FAV_PHOTO_REMOVED : ACTIONS.FAV_PHOTO_ADDED, payload: id });
   };
 
@@ -74,7 +73,6 @@ function useApplicationData() {
   const onTopicSelect = (topic) => {
     dispatch({ type: ACTIONS.SET_SELECTED_TOPIC, payload: topic });
 
-    //fetch photos for topic id from API
     fetch(`http://localhost:8001/api/topics/photos/${topic.id}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
@@ -86,7 +84,7 @@ function useApplicationData() {
 
   const isPhotoInFavorites = (id) => state.favPhotos.includes(id);
 
-  return { state, updateToFavPhotoIds, onPhotoSelect, onClosePhotoDetailsModal, isPhotoInFavorites, onTopicSelect };
+  return { state, dispatch, updateFavPhotoIds, onPhotoSelect, onClosePhotoDetailsModal, isPhotoInFavorites, onTopicSelect };
 }
 
 export default useApplicationData;
