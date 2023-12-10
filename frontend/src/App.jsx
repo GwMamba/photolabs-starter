@@ -13,7 +13,7 @@ const App = () => {
         photos={state.photoData}
         topics={state.topicData}
         openModal={onPhotoSelect}
-        markAsFavPhoto={updateToFavPhotoIds}
+        markFavPhoto={updateToFavPhotoIds}
         isPhotoInFavorites={isPhotoInFavorites}
         favPhotos={state.favPhotos}
         topicSelect={onTopicSelect}
@@ -23,7 +23,7 @@ const App = () => {
         closeModal={onClosePhotoDetailsModal}
         photo={state.selectedPhoto}
         photos={state.photoData}
-        markAsFavPhoto={updateToFavPhotoIds}
+        markFavPhoto={updateToFavPhotoIds}
         isPhotoInFavorites={isPhotoInFavorites}
       />}
       

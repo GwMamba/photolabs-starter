@@ -1,5 +1,15 @@
 import { useReducer, useEffect } from 'react';
 
+// Define initial state
+const initialState = {
+  isModalOpen: false,
+  selectedPhoto: null,
+  selectedTopic: null,
+  photoData: [],
+  topicData: [],
+  favPhotos: [],
+};
+
 // Define action types
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -11,15 +21,7 @@ export const ACTIONS = {
   SET_PHOTO_DATA: 'SET_PHOTO_DATA'  
 };
 
-// Define initial state
-const initialState = {
-  isModalOpen: false,
-  selectedPhoto: null,
-  favPhotos: [],
-  topicData: [],
-  selectedTopic: null, 
-  photoData: [],
-};
+
 
 // Define the reducer function
 function reducer(state, action) {

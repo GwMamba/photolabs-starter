@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton(props) {
+const PhotoFavButton = (props) => {
+  const { selected, onClick } = props;
 
   return (
-    <div className="photo-list__fav-icon" onClick={props.onClick}>
-      <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={props.selected} />
+    <div className="photo-list__fav-icon" data-attr-photoid={props.photoID}>  <div className="photo-list__fav-icon-svg"onClick={onClick}>
+        <FavIcon selected={selected} />
       </div>
     </div>
   );

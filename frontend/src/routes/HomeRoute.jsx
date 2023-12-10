@@ -15,7 +15,7 @@ const HomeRoute = (props) => {
 
       <PhotoList
         photos={props.photos}
-        markAsFavPhoto={props.markAsFavPhoto}
+        markFavPhoto={props.markFavPhoto}
         openModal={props.openModal}
         isPhotoInFavorites={props.isPhotoInFavorites}
       />

@@ -3,13 +3,13 @@ import "../styles/TopicListItem.scss";
 
 const TopicListItem = (props) => {
 
-  const handleTopicClick = () => {
+  const topicClickHandler = () => {
     props.topicSelect(props.topic);
   };
 
   return (
     <div className="topic-list__item">
-      <h2 onClick={handleTopicClick}>{props.label}</h2>
+      <h2 onClick={topicClickHandler}>{props.label}</h2>
     </div>
   );
 };

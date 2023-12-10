@@ -10,13 +10,14 @@ const PhotoList = (props) => {
   
     return (
       <PhotoListItem
+      
         imageSource={photo.urls.full}
         username={photo.user.username}
         city={photo.location.city}
         country={photo.location.country}
         profile={photo.user.profile}
         key={photo.id}
-        markAsFavPhoto={() => props.markAsFavPhoto(photo.id)}
+        markFavPhoto={() => props.markFavPhoto(photo.id)}
         photo={photo}
         openModal={props.openModal}
         selected={selected}
