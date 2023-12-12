@@ -8,6 +8,7 @@ const initialState = {
   photoData: [],
   topicData: [],
   favPhotos: [],
+  showNotification: false,
 };
 
 // Define action types
@@ -27,7 +28,7 @@ export const ACTIONS = {
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.FAV_PHOTO_ADDED:
-      return { ...state, favPhotos: [...state.favPhotos, action.payload] };
+      return { ...state, favPhotos: [...state.favPhotos, action.payload], showNotification: action.payload.length > 0, };
     case ACTIONS.FAV_PHOTO_REMOVED:
       return { ...state, favPhotos: state.favPhotos.filter((id) => id !== action.payload) };
     case ACTIONS.SET_MODAL_OPEN:

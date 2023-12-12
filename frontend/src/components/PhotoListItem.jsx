@@ -11,19 +11,27 @@ console.log("rendering photolistitem");
 
   return (
     <div className="photo-list__item">
-            <img src={props.imageSource} alt="Photo" className="photo-list__image" onClick={handlePhotoClick} />
+      <PhotoFavButton 
+       selected={false}
+       onClick={props.togglefavorite}
+     />
+      <img 
+      className="photo-list__image" 
+      src={props.imageSource} 
+      alt="Photo" 
+      onClick={handlePhotoClick}
+     />
       <div className="photo-list__user-details">
-        <img src={props.profile} alt="Profile" className="photo-list__user-profile" />
+        <img 
+        src={props.profile} 
+        alt="Profile" 
+        className="photo-list__user-profile" 
+        />
         <div className="photo-list__user-info">
           <h3>{props.username}</h3>
           <h3 className="photo-list__user-location">{props.city}, {props.country}</h3>
         </div>
       </div>
-      <PhotoFavButton
-        onClick={props.markFavPhoto}
-        photo={props.photo}
-        selected={false}
-      />    
     </div>
   );
 };

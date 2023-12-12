@@ -12,6 +12,6 @@ const TopNavigation = (props) => {
       <FavBadge favorites={props.favorites} selected={props.favorites} />
     </div>
   )
-}
+};
 
 export default TopNavigation;

@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
+import FavIcon from 'components/FavIcon';
 
 const TopicList = (props) => {
   return (
