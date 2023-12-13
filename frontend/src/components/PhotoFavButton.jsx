@@ -6,7 +6,8 @@ const PhotoFavButton = (props) => {
   const { selected, onClick } = props;
 
   return (
-    <div className="photo-list__fav-icon" data-attr-photoid={props.photoID}>  <div className="photo-list__fav-icon-svg"onClick={onClick}>
+    <div className="photo-list__fav-icon" onClick={onClick}>
+      <div className="photo-list__fav-icon-svg" >
         <FavIcon selected={selected} />
       </div>
     </div>
