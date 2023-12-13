@@ -26,7 +26,6 @@ const App = () => {
         markFavPhoto={updateToFavPhotoIds}
         isPhotoInFavorites={isPhotoInFavorites}
       />}
-      
     </div>
 
   );
