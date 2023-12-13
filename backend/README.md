@@ -1,5 +1,7 @@
 # Photolabs API
 
+This README file is geared towards the Photolabs app backend. For the project description, please refere to the main project README file.
+
 ## Setup
 
 Install dependencies with `npm install`.
