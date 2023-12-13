@@ -1,7 +1,9 @@
-# react-photolabs
-The PhotoLabs project for the Web Development React course programming.
-
 # Photolabs
+
+## Introduction
+
+PhotoLabs is a full stack React app that displays a selection of photos. It allows users to view the details of a photo, like it, or expand it. It utilizes Sass for styling, Express on the backend, and PostgreSQL for its database.
+
 
 #### Photolabs
 
@@ -10,10 +12,6 @@ The PhotoLabs project for the Web Development React course programming.
 #### Photolabs Modal
 
 ![Photolabs Modal Page](https://github.com/GwMamba/photolabs-starter/blob/main/docs/screenshots/Photolabs-modal.jpg)
-
-## Introduction
-
-An app where you can purchase Funko Pop! Toys & Vinyl Figures! for sale. You can pick a specific categories of items based on your personal preferences. This lets buyers find the items they are looking for quickly, and easily contact sellers.
 
 ## Setup
 
@@ -25,7 +23,6 @@ Install dependencies with `npm install` in each respective `/frontend` and `/bac
 cd frontend
 npm start
 ```
-
 
 ## [Backend] Running Backend Servier
 
