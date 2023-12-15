@@ -22,8 +22,6 @@ export const ACTIONS = {
   SET_PHOTO_DATA: 'SET_PHOTO_DATA'  
 };
 
-
-
 // Define the reducer function
 function reducer(state, action) {
   switch (action.type) {

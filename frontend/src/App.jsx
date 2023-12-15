@@ -5,7 +5,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
-  const { state, updateToFavPhotoIds, onPhotoSelect, onClosePhotoDetailsModal, isPhotoInFavorites, onTopicSelect } = useApplicationData();
+  const { state, updateFavPhotoIds, onPhotoSelect, onClosePhotoDetailsModal, isPhotoInFavorites, onTopicSelect } = useApplicationData();
 
   return (
     <div className="App">
@@ -13,7 +13,7 @@ const App = () => {
         photos={state.photoData}
         topics={state.topicData}
         openModal={onPhotoSelect}
-        markFavPhoto={updateToFavPhotoIds}
+        markFavPhoto={updateFavPhotoIds}
         isPhotoInFavorites={isPhotoInFavorites}
         favPhotos={state.favPhotos}
         topicSelect={onTopicSelect}
